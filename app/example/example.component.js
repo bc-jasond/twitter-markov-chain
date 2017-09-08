@@ -1,13 +1,16 @@
 import exampleHtml from './example.html';
 
-/* @ngInject */
-let exampleComponent = {
+class Controller {
+  $onInit() {
+    this.title = this.tweet.text;
+  }
+}
+
+export default {
   template: exampleHtml,
   controllerAs: 'example',
-  controller: function(exampleService) {
-    const vm = this;
-    vm.title = exampleService.title();
-  }
-
-}
-export default exampleComponent;
+  bindings: {
+    tweet: '<',
+  },
+  controller: Controller,
+};

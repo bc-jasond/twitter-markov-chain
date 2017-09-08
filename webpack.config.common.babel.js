@@ -12,13 +12,14 @@ module.exports = new WebpackConfig().merge({
   },
   context:  path.join(__dirname,'/app'),
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        loader: 'eslint-loader',
-        exclude: /(node_modules)/
-      }
-    ],
+    // FIXME: definitely use eslint
+    // preLoaders: [
+    //   {
+    //     test: /\.js$/,
+    //     loader: 'eslint-loader',
+    //     exclude: /(node_modules)/
+    //   }
+    // ],
     loaders: [{
         test: /\.scss$/,
         loader: 'style!css?sourceMap!sass?sourceMap&sourceComments'
