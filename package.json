@@ -20,7 +20,12 @@
     "angular": "^1.6",
     "angular-resource": "^1.6.6",
     "angular-ui-router": "1.0.3",
-    "markov-twitter-bot": "^1.3.12"
+    "lodash.unescape": "^4.0.1",
+    "markov-generator": "^1.2.2",
+    "markov-twitter-bot": "^1.3.12",
+    "node-schedule": "^1.2.4",
+    "this-is-probably-ok-to-say": "^1.0.100",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {
     "babel-plugin-angularjs-annotate": "^0.8.0",
