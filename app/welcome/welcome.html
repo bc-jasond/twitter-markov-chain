@@ -1,0 +1,13 @@
+<div ui-view></div>
+<label for="account-name">Enter Twitter Handle</label>
+<input id="account-name" ng-model="welcome.newAccount">
+<button type="submit" ui-sref="home.account({accountId: welcome.newAccount})">Get Tweet</button>
+<div ng-show="welcome.$rootScope.loading" id="splash-loader" class="xl-icon">
+  <div class="spinner css-loading-icon">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+  </div>
+</div>

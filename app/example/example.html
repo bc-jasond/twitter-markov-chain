@@ -1,1 +1,2 @@
-<h1>{{example.title}}</h1>
+<h1 ng-if="example.tweet">{{example.tweet.text}}</h1>
+<h2 ng-if="example.tweet">@{{example.tweet.account}}</h2>

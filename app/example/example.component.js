@@ -1,9 +1,7 @@
 import exampleHtml from './example.html';
 
 class Controller {
-  $onInit() {
-    this.title = this.tweet.text;
-  }
+  $onInit() {}
 }
 
 export default {

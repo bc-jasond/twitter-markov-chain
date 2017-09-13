@@ -14,6 +14,7 @@ const server = http.createServer(async (req, res) => {
   const queryParams = url.parse(req.url, true).query;
   const account = queryParams.account ? queryParams.account : defaultAccount;
   const shouldUseCache = queryParams.cache !== '0'; // use 'cache=0' to disable cache
+  const payload = {account};
 
   const bot = new TwitterBot({account});
   const getTweets = promisify(bot.getTweets).bind(bot);
@@ -27,7 +28,8 @@ const server = http.createServer(async (req, res) => {
 
   // conditionally cache the generated tweet
   if (shouldUseCache && markovChainCache.hasOwnProperty(account)) {
-    res.end(JSON.stringify({text: markovChainCache[account]}));
+    payload.text = markovChainCache[account];
+    res.end(JSON.stringify(payload));
     return;
   }
 
@@ -41,7 +43,8 @@ const server = http.createServer(async (req, res) => {
 
     const tweet = await generateTweet();
     if (shouldUseCache) markovChainCache[account] = tweet;
-    res.end(JSON.stringify({text: tweet}));
+    payload.text = tweet;
+    res.end(JSON.stringify(payload));
   } catch (err) {
     res.end(JSON.stringify(err));
   }
